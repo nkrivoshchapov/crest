@@ -74,15 +74,15 @@ subroutine V2cleanup(restartopt)
        call rmrf('PROP')
        call rmrf('crest_best.xyz')
        call rmrf(conformerfile)
-       call rmrfw(crefile)
+       !call rmrfw(crefile)
        call rmrfw('.cre_')
        call rmrf('cregen_*.tmp')
        call rmrf('gfnff_topo')
       else
        call rmrfw('NORMMD')
-       call rename(crefile//'_0.xyz','.tmp_full.xyz')
-       call rmrfw(crefile)
-       call rename('.tmp_full.xyz',crefile//'_0.xyz')
+       !call rename(crefile//'_0.xyz','.tmp_full.xyz')
+       !call rmrfw(crefile)
+       !call rename('.tmp_full.xyz',crefile//'_0.xyz')
       endif
       return
 end subroutine V2cleanup
@@ -110,8 +110,8 @@ subroutine V2terminating
        call remove('scoord.1')
        call catdel('cregen.out.tmp') !print to screen
        call checkname_xyz(crefile,inpnam,outnam)
-       call rename(inpnam,"crest_rotamers.xyz")
-       call rmrfw('crest_rotamers_')
+       !call rename(inpnam,"crest_rotamers.xyz")
+       !call rmrfw('crest_rotamers_')
        call rmrfw('crest_smtd_')
        return
 end subroutine V2terminating
@@ -126,7 +126,7 @@ subroutine clean_V2i
       call rmrfw('METADYN')
       call rmrfw('NORM')
       call rmrfw('STATICMTD')
-      call rmrfw(crefile)
+      !call rmrfw(crefile)
       return
 end subroutine clean_V2i
 
@@ -136,8 +136,8 @@ end subroutine clean_V2i
 subroutine rmcres()
       use crest_data
       implicit none
-      call rmrfw(crefile)
-      call rmrf(conformerfile)
+      !call rmrfw(crefile)
+      !call rmrf(conformerfile)
       return
 end subroutine rmcres
 
@@ -159,8 +159,8 @@ subroutine screen_cleanup
       implicit none
       call rmrf('OPTIM')
       call rmrf('scoord.1')
-      call rmrf(conformerfile)
-      call rmrfw(crefile)
+      !call rmrf(conformerfile)
+      !call rmrfw(crefile)
       return
 end subroutine screen_cleanup
 
@@ -211,7 +211,7 @@ subroutine clean
       call rmrfw('MODEF')
       call rmrfw('NORMMD')
       call rmrfw('TMPCONF')
-      call rmrfw(crefile)
+      !call rmrfw(crefile)
       return
 end subroutine clean
 

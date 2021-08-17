@@ -1296,7 +1296,7 @@ subroutine emtdcopy(env,iter,stopiter,broken)
        call checkname_xyz(crefile,atmp,crename)
        write(btmp,'(a,i0,a)') filname,iter,'.xyz'
        call rename(trim(atmp),trim(btmp))
-       call rmrfw('crest_rotamers_')
+       !call rmrfw('crest_rotamers_')
        call rmrfw('.data')
        env%emtd%sapproxlast = env%emtd%sapprox
        call rdensembleparam(conformerfile,i,nall)
@@ -1381,9 +1381,9 @@ subroutine emtdcopy(env,iter,stopiter,broken)
       stopiter = .true.
     endif
 
-    if(iter < env%emtd%iter .and. .not.stopiter)then
-    call rmrfw('crest_rotamers_')
-    endif
+    !if(iter < env%emtd%iter .and. .not.stopiter)then
+    !call rmrfw('crest_rotamers_')
+    !endif
     return
 contains
 subroutine writesdata(env,nall,inum)
