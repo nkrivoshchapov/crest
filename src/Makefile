@@ -3,7 +3,7 @@ PROG = crest
 OBJDIR = build
 #--------------------------------------------------------------------------
  OSTYPE=LINUXI
- #MKLROOT=/opt/intel/mkl
+ MKLROOT=/s/ls4/sw/intel/parallel-studio-2017/compilers_and_libraries_2017.1.132/linux/mkl
 #--------------------------------------------------------------------------
 
 MODULES += classes.o 
@@ -114,10 +114,10 @@ ifeq ($(OSTYPE),LINUXI)
   PREOPTS :=
   FC := ifort
   CC := icc
-  LINKER = ifort -g -O -static -fopenmp  -I$(MKLROOT)/include/intel64/lp64 -I$(MKLROOT)/include
+  LINKER = ifort -g -O -static -fopenmp -mkl
 #  LINKER = ifort -static -fopenmp  -I$(MKLROOT)/include/intel64/lp64 -I$(MKLROOT)/include
 #  LIBS = $(MKLROOT)/lib/intel64/libmkl_blas95_lp64.a $(MKLROOT)/lib/intel64/libmkl_lapack95_lp64.a -Wl,--start-group $(MKLROOT)/lib/intel64/libmkl_intel_lp64.a $(MKLROOT)/lib/intel64/libmkl_core.a $(MKLROOT)/lib/intel64/libmkl_intel_thread.a -Wl,--end-group -lpthread -lm
-  LIBS := -Wl,--start-group $(MKLROOT)/lib/intel64/libmkl_intel_lp64.a $(MKLROOT)/lib/intel64/libmkl_core.a $(MKLROOT)/lib/intel64/libmkl_intel_thread.a -Wl,--end-group 
+#  LIBS := -Wl,--start-group $(MKLROOT)/lib/intel64/libmkl_intel_lp64.a $(MKLROOT)/lib/intel64/libmkl_core.a $(MKLROOT)/lib/intel64/libmkl_intel_thread.a -Wl,--end-group -lm
   PREFLAG := -E -P
   FFLAGS := -g -O -qopenmp -align array64byte -module $(OBJDIR)
 #  FFLAGS := -g -O0
